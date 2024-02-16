@@ -19,7 +19,7 @@ public class Device {
   private String name;
   private String type;
   private String status;
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "employee_UUID")
   private Employee employee;
 }

@@ -25,6 +25,6 @@ public class Employee {
   private String email;
   private String profilePic;
   @JsonIgnore
-  @OneToMany(mappedBy = "employee", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @OneToMany(mappedBy = "employee")
   private List<Device> devices = new ArrayList<>();
 }
