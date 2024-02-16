@@ -43,11 +43,6 @@ public class EmployeeController {
     return employeeService.findById(employeeId);
   }
 
-  @PutMapping("/{employeeId}")
-  public Employee findAndUpdate(@PathVariable UUID employeeId, @RequestBody Employee body) {
-    return employeeService.findByIdAndUpdate(employeeId, body);
-  }
-
   @DeleteMapping("/{employeeId}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void findAndDelete(@PathVariable UUID employeeId) {

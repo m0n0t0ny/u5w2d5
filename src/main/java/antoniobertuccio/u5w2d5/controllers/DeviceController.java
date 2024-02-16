@@ -50,4 +50,6 @@ public class DeviceController {
   public void findAndDelete(@PathVariable UUID deviceId) {
     deviceService.findByIdAndDelete(deviceId);
   }
+
+
 }
