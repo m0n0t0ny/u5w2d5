@@ -71,4 +71,10 @@ public class EmployeeService {
     found.setProfilePic(avatarURL);
     return employeesRepository.save(found);
   }
+
+  public Employee updateEmail(UUID employeeId, String email) {
+    Employee employee = findById(employeeId);
+    employee.setEmail(email);
+    return employeesRepository.save(employee);
+  }
 }

@@ -57,4 +57,10 @@ public class EmployeeController {
       throw new RuntimeException(e);
     }
   }
+
+  @PatchMapping("/{employeeId}/email")
+  public Employee updateEmail(@PathVariable UUID employeeId, @RequestParam("email") String email) {
+    return employeeService.updateEmail(employeeId, email);
+  }
+
 }
