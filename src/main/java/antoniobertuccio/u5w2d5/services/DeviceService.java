@@ -3,6 +3,7 @@ package antoniobertuccio.u5w2d5.services;
 import antoniobertuccio.u5w2d5.entities.Device;
 import antoniobertuccio.u5w2d5.entities.Employee;
 import antoniobertuccio.u5w2d5.exceptions.DeviceNotFoundException;
+import antoniobertuccio.u5w2d5.payloads.devices.EmployeeIdDTO;
 import antoniobertuccio.u5w2d5.payloads.devices.NewDeviceDTO;
 import antoniobertuccio.u5w2d5.repositories.DevicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +53,12 @@ public class DeviceService {
     Employee employee = employeeService.findById(employeeId);
     return devicesRepository.findByEmployee(employee);
   }
+
+  public Device assignDeviceToEmployee(UUID deviceId, EmployeeIdDTO employeeId) {
+    Device device = findById(deviceId);
+    Employee employee = employeeService.findById(employeeId.uuid());
+    device.setEmployee(employee);
+    return devicesRepository.save(device);
+  }
+
 }

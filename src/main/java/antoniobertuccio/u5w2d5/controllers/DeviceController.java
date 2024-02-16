@@ -2,6 +2,7 @@ package antoniobertuccio.u5w2d5.controllers;
 
 import antoniobertuccio.u5w2d5.entities.Device;
 import antoniobertuccio.u5w2d5.exceptions.BadRequestException;
+import antoniobertuccio.u5w2d5.payloads.devices.EmployeeIdDTO;
 import antoniobertuccio.u5w2d5.payloads.devices.NewDeviceDTO;
 import antoniobertuccio.u5w2d5.services.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,8 @@ public class DeviceController {
     deviceService.findByIdAndDelete(deviceId);
   }
 
-
+  @PatchMapping("/{deviceId}/assign")
+  public Device assignDeviceToEmployee(@PathVariable UUID deviceId, @RequestBody EmployeeIdDTO employeeId) {
+    return deviceService.assignDeviceToEmployee(deviceId, employeeId);
+  }
 }
