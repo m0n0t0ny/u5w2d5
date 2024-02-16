@@ -1,4 +1,9 @@
 package antoniobertuccio.u5w2d5.exceptions;
 
-public class EmployeeNotFoundException {
+import java.util.UUID;
+
+public class EmployeeNotFoundException extends RuntimeException {
+  public EmployeeNotFoundException(UUID id) {
+    super("Il dipendente con id " + id + " non è stato trovato");
+  }
 }
