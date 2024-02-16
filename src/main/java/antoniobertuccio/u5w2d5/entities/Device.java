@@ -14,16 +14,12 @@ import java.util.UUID;
 public class Device {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Setter(AccessLevel.NONE)
   private UUID id;
+  private String name;
   private String type;
   private String status;
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "employee_UUID")
   private Employee employee;
-
-  public Device(String type, String status, Employee employee) {
-    this.type = type;
-    this.status = status;
-    this.employee = employee;
-  }
 }
